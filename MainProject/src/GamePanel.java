@@ -58,6 +58,7 @@ public class GamePanel extends Panel implements Runnable {
         p2.draw(g);
         ball.draw(g);
         score.draw(g);
+
     }
 
     @Override
@@ -158,6 +159,7 @@ public class GamePanel extends Panel implements Runnable {
         p1.move();
         p2.move();
         ball.move();
+        score.CheckWinner();
     }
     public class AL extends KeyAdapter
     {

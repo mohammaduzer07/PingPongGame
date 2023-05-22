@@ -1,3 +1,4 @@
+import javax.swing.*;
 import java.awt.*;
 
 public class Score extends Rectangle{
@@ -12,10 +13,31 @@ public class Score extends Rectangle{
         this.height = height;
         this.width = width;
     }
+
+    public void CheckWinner() {
+        if (player1 >= 10) {
+            ImageIcon icon = new ImageIcon("winner.png");
+            JOptionPane.showMessageDialog(null, "Player 1 won! GameOver", "Game Over", JOptionPane.INFORMATION_MESSAGE, icon);
+            restart();
+        } else if (player2 >= 10) {
+            ImageIcon icon = new ImageIcon("winner.png");
+            JOptionPane.showMessageDialog(null, "Player 2 won! GameOver", "Game Over", JOptionPane.INFORMATION_MESSAGE, icon);
+            restart();
+        }
+    }
+    public void restart() {
+        player1 = 0;
+        player2 = 0;
+        // Reset all other variables to their initial values
+        // Start the game again
+    }
+    public void gameOver() {
+        System.exit(0);
+    }
     public void draw(Graphics g)
     {
-        g.setColor(Color.darkGray);
-        g.setFont(new Font("Consolas", Font.ROMAN_BASELINE, 60));
+        g.setColor(Color.orange);
+        g.setFont(new Font("Consolas", Font.PLAIN, 60));
 
         g.drawLine(width/2,0,width/2,height);
 
